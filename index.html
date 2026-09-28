@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Arkkboutique</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #111;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        .hero {
+            min-height: 430px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 0 0 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 25px;
+            background: #111;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .products {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .products h2 {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .icon {
+            font-size: 55px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ARKKBOUTIQUE</div>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#produits">Produits</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="accueil">
+
+    <div>
+        <h1>Votre style, votre signature.</h1>
+
+        <p>
+            Découvrez notre sélection de montres,
+            lunettes et accessoires tendance.
+        </p>
+
+        <a href="#produits" class="button">
+            Découvrir la collection
+        </a>
+    </div>
+
+</section>
+
+<section class="products" id="produits">
+
+    <h2>Nos produits</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="icon">⌚</div>
+            <h3>Montre Élégante</h3>
+            <p>Montre moderne et élégante.</p>
+            <strong>$30</strong>
+            <br>
+            <a href="#contact" class="button">Acheter</a>
+        </div>
+
+        <div class="card">
+            <img src="images/img123.jpg" alt="img123" class="product-image">
+            <h3>Lunettes Premium</h3>
+            <p>Lunettes de tendance pour votre style.</p>
+            <strong>$25</strong>
+            <br>
+            <a href="#contact" class="button">Acheter</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">✨</div>
+            <h3>Accessoire</h3>
+            <p>Un accessoire parfait pour compléter votre look.</p>
+            <strong>$1</strong>
+            <br>
+            <a href="#contact" class="button">Acheter</a>
+        </div>
+
+    </div>
+
+</section>
+
+<footer id="contact 43927748,8098512024">
+    <p>© 2026 Arkkboutique</p>
+    <p>Style • Élégance • Qualité</p>
+</footer>
+
+</body>
+</html>
