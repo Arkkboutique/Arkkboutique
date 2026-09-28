@@ -159,7 +159,7 @@
 
         <div class="card">
             <div class="icon">⌚</div>
-            <h3>Montre Élégante</h3>
+            <h3>vetements Élégants</h3>
             <p>Montre moderne et élégante.</p>
             <strong>$30</strong>
             <br><button onclick="ajouterAuPanier('Montre Élégante', 30)">
@@ -179,7 +179,7 @@
 
         <div class="card">
             <div class="icon">✨</div>
-            <h3>Accessoire</h3>
+            <h3>Accessoires</h3>
             <p>Un accessoire parfait pour compléter votre look.</p>
             <strong>$1</strong>
             <br>
@@ -198,8 +198,8 @@
 let panier = [];
 
 function ajouterAuPanier(nom, prix) {
-    panier.push({nom: nom, prix: prix});
-console.log(nom, prix);
+    panier.push({ nom: nom, prix: prix });
+
     let liste = document.getElementById("liste-panier");
     let total = document.getElementById("total-panier");
 
@@ -212,7 +212,7 @@ console.log(nom, prix);
         ligne.textContent = produit.nom + " - $" + produit.prix;
         liste.appendChild(ligne);
 
-        totalPrix += produit.prix;
+        totalPrix += Number(produit.prix);
     });
 
     total.textContent = totalPrix;
