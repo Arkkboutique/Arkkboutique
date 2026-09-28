@@ -189,19 +189,14 @@
     </div>
 
 </section>
-
-<footer id="contact 43927748,8098512024">
-    <p>© 2024 Arkkboutique 43927748,8098512024</p>
-    <p>Style • Élégance • Qualité</p>
-</footer>
-<scrip>    
+<script>
 let panier = [];
 
 function ajouterAuPanier(nom, prix) {
-    let produitExistant = panier.find(p => p.nom === nom);
+    let produit = panier.find(p => p.nom === nom);
 
-    if (produitExistant) {
-        produitExistant.quantite++;
+    if (produit) {
+        produit.quantite++;
     } else {
         panier.push({
             nom: nom,
@@ -229,13 +224,12 @@ function afficherPanier() {
         let ligne = document.createElement("p");
 
         ligne.innerHTML =
-            produit.nom + " x " + produit.quantite +
+            produit.nom + " x" + produit.quantite +
             " - $" + (produit.prix * produit.quantite) +
             ' <button onclick="supprimerDuPanier(\'' +
             produit.nom + '\')">❌</button>';
 
         liste.appendChild(ligne);
-
         totalPrix += produit.prix * produit.quantite;
     });
 
@@ -245,11 +239,13 @@ function afficherPanier() {
 
     total.textContent = totalPrix;
 }
-    function commanderWhatsApp().</scrip> function commanderWhatsApp() {
+
+function commanderWhatsApp() {
     if (panier.length === 0) {
         alert("Votre panier est vide.");
-        return;  } 
-        
+        return;
+    }
+
     let nom = document.getElementById("nom-client").value;
     let telephone = document.getElementById("telephone-client").value;
     let adresse = document.getElementById("adresse-client").value;
@@ -259,21 +255,20 @@ function afficherPanier() {
         return;
     }
 
-let message = "Bonjour Arkkboutique 👋%0A%0A";
-    message += "👤 Nom : " + nom + "%0A";
-    message += "📞 Téléphone : " + telephone + "%0A";
-    message += "📍 Adresse : " + adresse + "%0A%0A";
-
-    message += "🛒 COMMANDE :%0A";
+    let message = "Bonjour Arkkboutique 👋%0A%0A";
+    message += "Nom : " + nom + "%0A";
+    message += "Téléphone : " + telephone + "%0A";
+    message += "Adresse : " + adresse + "%0A%0A";
+    message += "COMMANDE :%0A";
 
     panier.forEach(function(produit) {
         message += "- " + produit.nom +
-                   " x" + produit.quantite +
-                   " = $" + (produit.prix * produit.quantite) + "%0A";
+            " x" + produit.quantite +
+            " = $" + (produit.prix * produit.quantite) + "%0A";
     });
 
-    message += "%0A💰 Total : $" +
-               document.getElementById("total-panier").textContent;
+    message += "%0ATotal : $" +
+        document.getElementById("total-panier").textContent;
 
     let numero = "50943927748";
 
@@ -282,28 +277,32 @@ let message = "Bonjour Arkkboutique 👋%0A%0A";
         "_blank"
     );
 }
-
-    let message = "Bonjour Arkkboutique 👋%0A%0A";
-    message += "Je voudrais commander :%0A";
-
-    panier.forEach(function(produit) {
-        message += "- " + produit.nom +
-                   " x" + produit.quantite +
-                   " = $" + (produit.prix * produit.quantite) + "%0A";
-    });
-
-    message += "%0ATotal : $" +
-               document.getElementById("total-panier").textContent;
-
-    let numero = "50943927748";
-    window.open("https://wa.me/" + numero + "?text=" + message, "_blank");
-}
 </script>
+
 <div id="panier">
     <h2>🛒 Mon panier</h2>
+
     <div id="liste-panier">Panier vide</div>
-    <strong>Total: $<span id="total-panier">0</span></strong>
+
+    <strong>
+        Total: $<span id="total-panier">0</span>
+    </strong>
+
     <br><br>
+
+    <input id="nom-client" type="text" placeholder="Votre nom">
+
+    <br><br>
+
+    <input id="telephone-client" type="tel" placeholder="Votre téléphone">
+
+    <br><br>
+
+    <textarea id="adresse-client" placeholder="Votre adresse de livraison"></textarea>
+
+    <br><br>
+    
+
 <button onclick="commanderWhatsApp()">
     📱 Commander sur WhatsApp
 </button>
