@@ -245,12 +245,37 @@ function afficherPanier() {
 
     total.textContent = totalPrix;
 }
+    function commanderWhatsApp() {
+    if (panier.length === 0) {
+        alert("Votre panier est vide.");
+        return;
+    }
+
+    let message = "Bonjour Arkkboutique 👋%0A%0A";
+    message += "Je voudrais commander :%0A";
+
+    panier.forEach(function(produit) {
+        message += "- " + produit.nom +
+                   " x" + produit.quantite +
+                   " = $" + (produit.prix * produit.quantite) + "%0A";
+    });
+
+    message += "%0ATotal : $" +
+               document.getElementById("total-panier").textContent;
+
+    let numero = "50943927748";
+    window.open("https://wa.me/" + numero + "?text=" + message, "_blank");
+}
 </script>
 
 <div id="panier" style="position:fixed; right:20px; top:20px; background:white; padding:20px; border:1px solid #ccc; z-index:9999;">
     <h2>🛒 Mon panier</h2>
     <div id="liste-panier">Panier vide</div>
     <strong>Total: $<span id="total-panier">0</span></strong>
+    <br><br>
+<button onclick="commanderWhatsApp()">
+    📱 Commander sur WhatsApp
+</button>
 </div>
 
 </body>
