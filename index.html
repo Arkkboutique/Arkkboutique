@@ -191,32 +191,60 @@
 </section>
 
 <footer id="contact 43927748,8098512024">
-    <p>© 2026 Arkkboutique</p>
+    <p>© 2024 Arkkboutique 43927748,8098512024</p>
     <p>Style • Élégance • Qualité</p>
 </footer>
 <script>
 let panier = [];
 
 function ajouterAuPanier(nom, prix) {
-    panier.push({ nom: nom, prix: prix });
+    let produitExistant = panier.find(p => p.nom === nom);
 
+    if (produitExistant) {
+        produitExistant.quantite++;
+    } else {
+        panier.push({
+            nom: nom,
+            prix: Number(prix),
+            quantite: 1
+        });
+    }
+
+    afficherPanier();
+}
+
+function supprimerDuPanier(nom) {
+    panier = panier.filter(p => p.nom !== nom);
+    afficherPanier();
+}
+
+function afficherPanier() {
     let liste = document.getElementById("liste-panier");
     let total = document.getElementById("total-panier");
 
     liste.innerHTML = "";
-
     let totalPrix = 0;
 
     panier.forEach(function(produit) {
         let ligne = document.createElement("p");
-        ligne.textContent = produit.nom + " - $" + produit.prix;
+
+        ligne.innerHTML =
+            produit.nom + " x " + produit.quantite +
+            " - $" + (produit.prix * produit.quantite) +
+            ' <button onclick="supprimerDuPanier(\'' +
+            produit.nom + '\')">❌</button>';
+
         liste.appendChild(ligne);
 
-        totalPrix += Number(produit.prix);
+        totalPrix += produit.prix * produit.quantite;
     });
 
+    if (panier.length === 0) {
+        liste.innerHTML = "Panier vide";
+    }
 
-
+    total.textContent = totalPrix;
+}
 </script>
 
 <div id="panier" style="position:fixed; right:20px; top:20px; background:white; padding:20px; border:1px solid #ccc; z-index:9999;">
