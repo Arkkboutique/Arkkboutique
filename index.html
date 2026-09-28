@@ -245,18 +245,20 @@ function afficherPanier() {
 
     total.textContent = totalPrix;
 }
-    function commanderWhatsApp() function commanderWhatsApp() {
+    function commanderWhatsApp().</scrip> function commanderWhatsApp() {
     if (panier.length === 0) {
         alert("Votre panier est vide.");
         return;  } 
-</scrip>
+        
     let nom = document.getElementById("nom-client").value;
     let telephone = document.getElementById("telephone-client").value;
     let adresse = document.getElementById("adresse-client").value;
 
     if (nom === "" || telephone === "" || adresse === "") {
         alert("Veuillez remplir toutes les informations.");
-        return; }
+        return;
+    }
+
 let message = "Bonjour Arkkboutique 👋%0A%0A";
     message += "👤 Nom : " + nom + "%0A";
     message += "📞 Téléphone : " + telephone + "%0A";
