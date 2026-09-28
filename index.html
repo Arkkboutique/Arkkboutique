@@ -199,6 +199,24 @@ let panier = [];
 
 function ajouterAuPanier(nom, prix) {
     panier.push({nom: nom, prix: prix});
+
+    let liste = document.getElementById("liste-panier");
+    let total = document.getElementById("total-panier");
+
+    liste.innerHTML = "";
+
+    let totalPrix = 0;
+
+    panier.forEach(function(produit) {
+        let ligne = document.createElement("p");
+        ligne.textContent = produit.nom + " - $" + produit.prix;
+        liste.appendChild(ligne);
+
+        totalPrix += produit.prix;
+    });
+
+    total.textContent = totalPrix;
+}
     alert("Ajoute nan panier: " + nom);
 }
 
